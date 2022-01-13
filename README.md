@@ -9,10 +9,12 @@ It goes without saying, but if you haven't yet seen the ***original*** Photomath
 https://photomath.com/en/
 
 
-If you've compared the two, you probably wonder how did my project manage to be so... underwhelming? Well, give me a chance to explain myself
+If you've compared the two, you probably wonder how did my project manage to be so... underwhelming? Well, give me a chance to explain myself:
 ______________________________________________________________________________________________________________________________________________
 
 # Basic info
+The detector is a simple opencv function cv2.findContours(), the recognizer is a barely-deep learning model and I've hand-implemented a parser/solver using the Shunting Yard Algorithm. So there's definitely room for improvement... Still, let me show you what I've done so far:
+
 
 Let's dive into the repository. The first step is to take a look at the project tree:
 
@@ -92,7 +94,10 @@ https://schrotomath.herokuapp.com/  ------>  To use the app, allow it acces to y
 ![class samples](https://user-images.githubusercontent.com/72471213/149320350-f1677f6f-d78f-44cb-9a58-b68a2d804bab.png)
 
 
-When you've written the equation, place it in front of your camera. Try to position it in the center, while keeping the remainder of the screen white. The detector will catch on to edges between the paper and table for example, and your equation will go bonkers. It's a good idea to have decent lightning as well.
+When you've written the equation, place it in front of your camera. Try to position it in the center, while keeping the remainder of the screen white. The detector will catch on to edges between the paper and table for example, and your equation will go bonkers. It's a good idea to have decent lightning as well. It still won't work as expected, but sometimes it can surprise ;)
+
+![Happy New Year](https://user-images.githubusercontent.com/72471213/149353808-dad39bc3-6ac1-4232-b9a5-166e7061faca.gif)
+
 ______________
 
 Regarding the cv2.VideoCapture():
@@ -104,4 +109,14 @@ _____________
 
 The dataset is made up of two free datasets found online, EMNIST (https://www.kaggle.com/crawford/emnist) and https://www.kaggle.com/xainano/handwrittenmathsymbols.
 From EMNIST I've picked out all the digits and an X symbol, while from the other dataset I've taken only the brackets. All the files were augmented in one way or another (See the notebooks), and many examples were picked out of the dataset. The process was overwhelming and I stopped long before the dataset is optimal. Still, I encourage you to pick up my work and continue rather than going all the way from the beginning. The link to my dataset is: https://drive.google.com/u/0/uc?export=download&confirm=_wbt&id=1FtqqI4EBXyrruvyTw7i-MAUQkW9GnLPn
+_____________
 
+
+There's tons of related quality content on the internet, so if you'd want to build something like this yourself I suggest a couple of easy-to-follow articles:
+
+Making a computer vision app with Flask:
+https://towardsdatascience.com/camera-app-with-flask-and-opencv-bd147f6c0eec
+
+Deploying app on heroku:
+https://medium.com/featurepreneur/how-to-deploy-a-flask-app-on-heroku-part-1-14782c3068bc
+https://medium.com/featurepreneur/how-to-deploy-docker-container-on-heroku-part-2-eaaaf1027f0b
