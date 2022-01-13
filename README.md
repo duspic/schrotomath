@@ -2,7 +2,7 @@
 > I can't believe it's not Photomath™
 
 
-This is a simple homage project. Not worthy to bear the name of Photomath. It has obvious flaws for which I can't currently muster any more time, but it still somewhat works.
+This is a simple homage project, not worthy to bear the name of Photomath. It has obvious flaws for which I can't currently muster any more time, but it still somewhat works.
 If you don't believe me - try it out: https://schrotomath.herokuapp.com/          *(Look for instructions on how to use it at the bottom of this file)*
 
 It goes without saying, but if you haven't yet seen the ***original*** Photomath - take a look at it:   
@@ -19,7 +19,8 @@ The detector is a simple opencv function cv2.findContours(), the recognizer is a
 Let's dive into the repository. The first step is to take a look at the project tree:
 
 ```
-photomath
+Schrotomath
+│
 ├─ app
 │  ├─ app.py
 │  ├─ backend.py
@@ -28,11 +29,10 @@ photomath
 │  ├─ templates
 │  │  └─ index.html
 │  ├─ model
-|  |  └─ # tensorflow model files #
+│  │  └─  # tensorflow model files #
 │  ├─ requirements.txt
 │  └─ Dockerfile
-|
-|
+│  
 └─ notebooks
    ├─ augment_dataset.ipynb
    ├─ create_model.ipynb
@@ -40,16 +40,14 @@ photomath
    ├─ emnis_digits_extraction.ipynb
    ├─ entire_process.ipynb
    ├─ uniform_dataset.ipynb
-   |
    ├─ example.png
    ├─ architecture.png
    ├─ solver.py
-   
    └─ utils.py
 
 ```
 
-The main directory is /app. The same directory is dockerized and its image can be found here: 
+The main directory is /app. The same directory is dockerized and the image can be found here: 
 https://hub.docker.com/r/duspic/schrotomath 
 
 In the directory, there are a couple of important files to keep in mind.
@@ -60,10 +58,10 @@ tensorflow 2.7.0
 numpy 1.21.3
 opencv 4.0.1
 ```
-These are my current versions of the libraries, but I guess newer versions will work for some time. Try it out if you wish to.
+These are my current versions of the libraries, but I guess newer versions will work for some time. Feel free to try.
 
 There's a main script, **app.py**, which instantiates the Flask app. To keep the main script tidy, I've distributed the code among other scripts; **utils.py**, **solver.py**, **backend.py**. 
-The folder **model** is pretty self-explainatory. The entire folder servers as a save-file for tensorflow, from which it loads the weights and architecture of a pre-trained convolutional neural network (CNN). If you find those words somewhat fuzzy, don't sweat about it. In simple terms, the CNN serves as a function, it takes an input and returns an output. The input must be an image of certain shape, and the output is an array which represents what the CNN thinks is in the image.
+The folder **model** is pretty self-explainatory. The entire folder serves as a save-file for tensorflow, from which it loads the weights and architecture of a pre-trained convolutional neural network (CNN). If you find those words somewhat fuzzy, don't sweat about it. In simple terms, the CNN serves as a function, it takes an input and returns an output. The input must be an image of certain shape, and the output is an array which represents what the CNN thinks is in the image.
 
 In the folder **templates** there's a single file **index.html** which contains the layout of the page. There's a javascript part in the file which fetches the camera *client-side* and sends the image to the server for processing.
 If you're wondering:
@@ -78,7 +76,7 @@ ________________________________________________________________________________
 # The Notebooks
 
 I don't think there's much point in me typing all the steps and details about them. So I placed most of the information alongside related code in the notebooks.
-I recommend the **create_model.ipynb** and **entire_process.ipynb**. The first one explains how I built, trained and evaluated my model, where are it's flaws and what are the difficulties surrounding it. The second one takes you trough the entire process which is happening in the background of the app. Open the **example.png** in your image editor of choice, try writing your own equation and run the notebook to see the results. As explained in the create_model.ipynb, some classes are often mispredicted, so try out a couple of examples if you wish.
+I recommend the **create_model.ipynb** and **entire_process.ipynb**. The first one explains how I built, trained and evaluated my model, where it is flawed and what are the difficulties surrounding it. The second one takes you trough the entire process which is happening in the background of the app. Open the **example.png** in your image editor of choice, try writing your own equation and run the notebook to see the results. As explained in the create_model.ipynb, some classes are often mispredicted, so try out a couple of examples if you wish.
 
 Other notebooks contain other processes, mainly inspecting and augmenting datasets.
 
