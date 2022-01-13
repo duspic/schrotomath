@@ -33,19 +33,19 @@ photomath
 │  └─ Dockerfile
 |
 |
-├─ notebooks
-|  ├─ augment_dataset.ipynb
-|  ├─ create_model.ipynb
-|  ├─ emnist_extraction.ipynb
-|  ├─ emnis_digits_extraction.ipynb
-|  ├─ entire_process.ipynb
-|  ├─ example.png
-|  ├─ solver.py
-|  ├─ uniform_dataset.ipynb
-|  └─ utils.py
-|   
-├─ architecture.png
-└─ classes.png
+└─ notebooks
+   ├─ augment_dataset.ipynb
+   ├─ create_model.ipynb
+   ├─ emnist_extraction.ipynb
+   ├─ emnis_digits_extraction.ipynb
+   ├─ entire_process.ipynb
+   ├─ uniform_dataset.ipynb
+   |
+   ├─ example.png
+   ├─ architecture.png
+   ├─ solver.py
+   
+   └─ utils.py
 
 ```
 
