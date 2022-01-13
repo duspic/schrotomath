@@ -103,7 +103,7 @@ ______________
 Regarding the cv2.VideoCapture():
 > Q: Why use javascript in index.html to fetch webcam. Can't I just make a cv2.VideoCapture() in my python file?
 
-> A: When deployed on a cloud, the main script will be run on a server somewhere. The user will interact with it trough his own device, but will have access only to what's displayed on the webpage. The method cv2.VideoCapture() tries to find a camera on the machine on which the script is running. So, when you run it locally it will work as planned, but when you deploy it, it will try to find a camera on the **server** machine. The user can have as many cameras as they please, but the script cannot access them trough this method, because the user doesn't run the code. With JS provided in the index.html, users webcam is displayed directly in the front-end, sending only the necessary photo to the server for processing using the "fetch" function
+> A: When deployed on a cloud, the main script will be run on a server somewhere. The user will interact with it through his own device, but will have access only to what's displayed on the webpage. The method cv2.VideoCapture() tries to find a camera on the machine on which the script is running. So, when you run it locally it will work as planned, but when you deploy it, it will try to find a camera on the **server** machine. The user can have as many cameras as they please, but the script cannot access them trough this method, because the user doesn't run the code. With JS provided in the index.html, users webcam is displayed directly in the front-end, sending only the necessary photo to the server for processing using the "fetch" function
 
 _____________
 
